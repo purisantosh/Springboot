@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.Repository.SubmissionRepositoryImpl;
 import com.example.demo.entity.SubmissionDTO;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,8 +13,15 @@ public class SubmissionServiceImpl implements SubmissionService {
 
     @Autowired
     private SubmissionRepositoryImpl submissionRepositoryImpl;
+
+    public void setRepo(SubmissionRepositoryImpl srb)
+    {
+        this.submissionRepositoryImpl = srb;
+    }
+
     @Override
     public SubmissionDTO getSubmissionById(String id) {
+
         return submissionRepositoryImpl.getSubmissionById(id);
     }
 
